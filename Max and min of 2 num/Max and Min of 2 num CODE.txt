@@ -1,0 +1,38 @@
+/*
+    Program: Maximum and Minimum of 2 Numbers
+    Coder: Hasan Zaid
+
+    Basic idea:
+    - Take two numbers as input.
+    - Use if-else to compare them.
+    - Display the maximum and minimum values.
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int a, b, max, min;
+
+    printf("Enter first number: ");
+    scanf("%d", &a);
+
+    printf("Enter second number: ");
+    scanf("%d", &b);
+
+    if (a > b)
+    {
+        max = a;
+        min = b;
+    }
+    else
+    {
+        max = b;
+        min = a;
+    }
+
+    printf("Maximum = %d\n", max);
+    printf("Minimum = %d", min);
+
+    return 0;
+}
