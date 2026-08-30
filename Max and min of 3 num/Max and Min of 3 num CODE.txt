@@ -1,0 +1,41 @@
+/*
+    Program: Maximum and Minimum of 3 Numbers
+    Coder: Hasan Zaid
+
+    Basic idea:
+    - Take three numbers as input.
+    - Compare the numbers using if-else.
+    - Find and display the maximum and minimum.
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int a, b, c;
+    int max, min;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+
+    // Find maximum
+    if (a > b && a > c)
+        max = a;
+    else if (b > c)
+        max = b;
+    else
+        max = c;
+
+    // Find minimum
+    if (a < b && a < c)
+        min = a;
+    else if (b < c)
+        min = b;
+    else
+        min = c;
+
+    printf("Maximum = %d\n", max);
+    printf("Minimum = %d", min);
+
+    return 0;
+}

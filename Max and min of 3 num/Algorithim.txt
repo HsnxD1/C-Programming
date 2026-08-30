@@ -1,0 +1,12 @@
+Algorithm: Maximum and Minimum of Three Numbers
+Coder: Hasan Zaid
+
+1. Start
+2. Declare variables A, B, C, MAX and MIN.
+3. Read A, B and C.
+4. Compare A, B and C to find the largest number.
+5. Store the largest number in MAX.
+6. Compare A, B and C to find the smallest number.
+7. Store the smallest number in MIN.
+8. Display MAX and MIN.
+9. Stop

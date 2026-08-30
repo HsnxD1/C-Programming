@@ -1,0 +1,13 @@
+Algorithm: Maximum and Minimum of Two Numbers
+
+1. Start
+2. Declare variables A, B, MAX and MIN.
+3. Read A and B.
+4. If A > B:
+      MAX = A
+      MIN = B
+   Otherwise:
+      MAX = B
+      MIN = A
+5. Display MAX and MIN.
+6. Stop
