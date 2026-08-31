@@ -1,0 +1,12 @@
+Algorithm: Check Odd or Even
+Coder: Hasan Zaid
+
+1. Start
+2. Declare variable NUM.
+3. Read NUM.
+4. Calculate NUM % 2.
+5. If the remainder is 0:
+      Display "Even"
+   Otherwise:
+      Display "Odd"
+6. Stop
