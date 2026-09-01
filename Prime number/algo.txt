@@ -1,0 +1,14 @@
+Algorithm: Check Prime Number
+Coder: Hasan Zaid
+
+1. Start
+2. Declare variables NUM, I and FLAG.
+3. Read NUM.
+4. If NUM <= 1:
+      Display "Not Prime"
+5. Otherwise, check divisibility of NUM from 2 to NUM - 1.
+6. If NUM is divisible by any number:
+      Display "Not Prime"
+7. Otherwise:
+      Display "Prime"
+8. Stop
