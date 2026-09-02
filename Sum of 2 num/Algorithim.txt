@@ -1,0 +1,9 @@
+Algorithm: Sum of Two Numbers
+Coder: Hasan Zaid
+
+1. Start
+2. Declare three variables: A, B and SUM.
+3. Read A and B.
+4. Calculate SUM = A + B.
+5. Display SUM.
+6. Stop
