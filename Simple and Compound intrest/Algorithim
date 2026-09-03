@@ -1,0 +1,9 @@
+Algorithm: Simple and Compound Interest
+
+1. Start
+2. Declare variables P, R, T, SI, CI.
+3. Read P, R and T.
+4. Calculate SI = (P x R x T) / 100.
+5. Calculate CI = P x (1 + R/100)^T - P.
+6. Display SI and CI.
+7. Stop

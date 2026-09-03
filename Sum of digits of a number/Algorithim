@@ -1,0 +1,12 @@
+Algorithm: Sum of Individual Digits
+
+1. Start
+2. Declare variables NUM, DIGIT, SUM.
+3. Read NUM.
+4. Set SUM = 0.
+5. Repeat while NUM is not equal to 0:
+      Calculate DIGIT = NUM % 10.
+      Calculate SUM = SUM + DIGIT.
+      Calculate NUM = NUM / 10.
+6. Display SUM.
+7. Stop

@@ -1,0 +1,8 @@
+Algorithim: Area of a Circle
+
+1. Start
+2. Declare variables RADIUS, AREA.
+3. Read RADIUS.
+4. Calculate AREA = 3.14159 x RADIUS x RADIUS.
+5. Display AREA.
+6. Stop

@@ -1,0 +1,12 @@
+Algorithm: Arithmetic Operations
+
+1. Start
+2. Declare variables A, B, SUM, DIFF, PROD, QUO, REM.
+3. Read A and B.
+4. Calculate SUM = A + B.
+5. Calculate DIFF = A - B.
+6. Calculate PROD = A x B.
+7. Calculate QUO = A / B.
+8. Calculate REM = A % B.
+9. Display SUM, DIFF, PROD, QUO and REM.
+10. Stop

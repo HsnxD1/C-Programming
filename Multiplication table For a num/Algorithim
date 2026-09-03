@@ -1,0 +1,11 @@
+Algorithm: Multiplication Table
+
+1. Start
+2. Declare variables NUM, I.
+3. Read NUM.
+4. Set I = 1.
+5. Repeat while I <= 10:
+      Calculate NUM x I.
+      Display NUM x I = result.
+      Increment I.
+6. Stop
