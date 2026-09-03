@@ -1,12 +1,6 @@
 /*
     Program: Check Whether a Number is Odd or Even
-    Coder: Hasan Zaid
-
-    Basic idea:
-    - Take a number as input.
-    - Use the modulus (%) operator.
-    - If number % 2 is 0, the number is even.
-    - Otherwise, the number is odd.
+    By: HsnxD1
 */
 
 #include <stdio.h>

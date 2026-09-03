@@ -1,5 +1,4 @@
 Algorithm: Check Odd or Even
-Coder: Hasan Zaid
 
 1. Start
 2. Declare variable NUM.

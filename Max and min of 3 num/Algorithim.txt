@@ -1,5 +1,4 @@
 Algorithm: Maximum and Minimum of Three Numbers
-Coder: Hasan Zaid
 
 1. Start
 2. Declare variables A, B, C, MAX and MIN.

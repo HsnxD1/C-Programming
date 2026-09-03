@@ -1,11 +1,6 @@
 /*
     Program: Maximum and Minimum of 2 Numbers
-    Coder: Hasan Zaid
-
-    Basic idea:
-    - Take two numbers as input.
-    - Use if-else to compare them.
-    - Display the maximum and minimum values.
+    By: HsnxD1
 */
 
 #include <stdio.h>

@@ -1,11 +1,6 @@
-*
+/*
     Program: Maximum and Minimum of 3 Numbers
-    Coder: Hasan Zaid
-
-    Basic idea:
-    - Take three numbers as input.
-    - Compare the numbers using if-else.
-    - Find and display the maximum and minimum.
+    By: HsnxD1
 */
 
 #include <stdio.h>
