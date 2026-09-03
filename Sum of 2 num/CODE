@@ -1,11 +1,7 @@
 /*
     Program: Sum of 2 Numbers
-    Coder: Hasan Zaid
+    By: HsnxD1
 
-    Basic idea:
-    - Take two numbers as input.
-    - Add them using the + operator.
-    - Display the result.
 */
 
 #include <stdio.h>
