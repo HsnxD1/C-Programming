@@ -1,0 +1,29 @@
+/*
+    Program: Arithmetic Operations
+    By: HsnxD1
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    float a, b, sum, diff, prod, quo;
+    int rem;
+
+    printf("Enter two numbers: ");
+    scanf("%f %f", &a, &b);
+
+    sum  = a + b;
+    diff = a - b;
+    prod = a * b;
+    quo  = a / b;
+    rem  = (int)a % (int)b;
+
+    printf("Sum of a and b = %.2f\n", sum);
+    printf("Difference of a and b = %.2f\n", diff);
+    printf("Product of a and b = %.2f\n", prod);
+    printf("Quotient of a and b = %.2f\n", quo);
+    printf("Remainder of a and b = %d\n", rem);
+
+    return 0;
+}

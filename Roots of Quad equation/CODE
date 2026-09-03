@@ -1,0 +1,44 @@
+/*
+    Program: Roots of a Quadratic Equation
+    By: HsnxD1
+*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    double a, b, c;
+    double D, root1, root2;
+
+    printf("Enter values of a, b and c: ");
+    scanf("%lf %lf %lf", &a, &b, &c);
+
+    // Calculate discriminant
+    D = (b * b) - (4 * a * c);
+
+    if (D > 0)
+    {
+        // Two different real roots
+        root1 = (-b + sqrt(D)) / (2 * a);
+        root2 = (-b - sqrt(D)) / (2 * a);
+
+        printf("Root 1 = %.2lf\n", root1);
+        printf("Root 2 = %.2lf", root2);
+    }
+    else if (D == 0)
+    {
+        // One repeated real root
+        root1 = -b / (2 * a);
+
+        printf("Both roots are equal.\n");
+        printf("Root = %.2lf", root1);
+    }
+    else
+    {
+        // Complex roots
+        printf("The equation has complex roots.");
+    }
+
+    return 0;
+}

@@ -1,0 +1,15 @@
+Algorithm: Roots of a Quadratic Equation
+
+1. Start
+2. Declare variables A, B, C, D, ROOT1 and ROOT2.
+3. Read A, B and C.
+4. Calculate D = B² - 4AC.
+5. If D > 0:
+      Calculate two different roots.
+      Display ROOT1 and ROOT2.
+6. If D = 0:
+      Calculate the single repeated root.
+      Display the root.
+7. If D < 0:
+      Display "Complex Roots".
+8. Stop
