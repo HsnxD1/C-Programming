@@ -1,0 +1,89 @@
+## WEEK 2 — Max/Min, Interest Calculations, Multiplication Table, Decimal-to-Binary
+
+**1. What is the difference between `max` and `min` functions in C?**
+C has no built-in `max`/`min` function — you write the logic yourself using conditional operators. A "max" comparison keeps whichever value is greater at each step; a "min" comparison keeps whichever is smaller. Both are usually built with `if-else` or the ternary operator.
+
+**2. How do you find the largest of three numbers using conditional operators?**
+Using nested ternary operators:
+```c
+large = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+```
+This compares `a` and `b` first, then compares that winner against `c`.
+
+**3. Explain how nested `if-else` can be used to find the smallest number.**
+```c
+if (a < b) {
+    if (a < c) small = a;
+    else small = c;
+} else {
+    if (b < c) small = b;
+    else small = c;
+}
+```
+The outer `if-else` narrows the comparison to two candidates; the inner `if-else` then compares that candidate against the third number to settle on the smallest.
+
+**4. What is the syntax for the `scanf()` function? How is it used in your program?**
+`scanf("format specifiers", &variable1, &variable2, ...);` — it reads input from the keyboard according to the format specifiers (`%d` for int, `%f` for float, `%c` for char) and stores the value at the address of each variable (hence the `&`). In these programs it's used to read the numbers, principal/rate/time, or the decimal number to convert.
+
+**5. How do you declare multiple variables of the same type in C?**
+List them comma-separated after a single type keyword: `int a, b, c;` or `float p, r, t;`.
+
+**6. What is simple interest? How is it calculated in C?**
+Simple interest is interest calculated only on the original principal, not on any interest already earned. Formula: `SI = (P * R * T) / 100`. In C: `si = (p * r * t) / 100.0;` (using float division so the result isn't truncated).
+
+**7. How do you calculate compound interest in C using the `pow()` function?**
+Compound interest formula: `CI = P * (1 + R/100)^T - P`. Since this needs exponentiation, C's `pow()` (from `math.h`) is used:
+```c
+ci = p * pow(1 + r/100.0, t) - p;
+```
+
+**8. What is the difference between simple interest and compound interest?**
+Simple interest is computed only on the principal, so it grows linearly over time. Compound interest is computed on the principal *plus* interest already accumulated, so it grows faster (exponentially), which is why its C calculation needs `pow()` while simple interest doesn't.
+
+**9. How does the `for` loop work in generating a multiplication table?**
+```c
+for (i = 1; i <= 10; i++)
+    printf("%d x %d = %d\n", n, i, n * i);
+```
+`i` is initialized to 1, the loop continues while `i <= 10`, and `i` increments by 1 each pass; each iteration prints `n * i` for the current `i`.
+
+**10. How can you modify the multiplication table program to print a different number of rows?**
+Replace the fixed limit (`10`) with a variable read from the user: `scanf("%d", &rows);` then loop `for (i = 1; i <= rows; i++) { ... }`.
+
+**11. Explain the importance of format specifiers in `printf()`.**
+They tell `printf` how to interpret and display each argument's bits — `%d` as a signed integer, `%f` as a floating point number, `%c` as a character, etc. Using the wrong specifier (e.g., `%d` for a `float`) produces garbage output because the same bit pattern is read/interpreted incorrectly.
+
+**12. What is the range of valid inputs for the decimal-to-binary program you wrote?**
+0 to 255 — because the program stores the binary result in an 8-element array (`b[8]`), i.e., 8 bits, and 8 bits can represent decimal values from 0 up to 2⁸−1 = 255. Anything outside that range is rejected as invalid.
+
+**13. How is the binary equivalent of a decimal number calculated in your program?**
+By repeated division by 2: at each step, `n % 2` gives the next binary digit (0 or 1), and `n = n / 2` moves to the next digit. This is repeated 8 times (once per bit), and the digits are printed in reverse order of how they were generated so the most significant bit appears first.
+
+**14. Why do you store binary digits in an array? What is the significance of LSB and MSB?**
+Because the digits are generated least-significant-bit first (from `n % 2`), but need to be *displayed* most-significant-bit first. Storing them in an array lets the program generate them in one order and print them in the reverse order. LSB (Least Significant Bit) is the rightmost/last digit (smallest place value); MSB (Most Significant Bit) is the leftmost/first digit (largest place value, `2^7` for an 8-bit number).
+
+**15. Explain the difference between using `goto` and `while`/`do-while` loops for input validation.**
+`goto` jumps directly to a labeled point in the code (e.g., back to an input prompt) — simple but can make control flow harder to follow if overused. A `while`/`do-while` loop achieves the same "keep asking until valid" behavior in a more structured way, e.g., `do { scanf(...); } while (n < 0 || n > 255);` — generally considered better style since the loop's condition is clearly visible at one place.
+
+**16. How would you modify the binary program to handle numbers greater than 255?**
+Increase the array size beyond 8 bits (e.g., `int b[16];` or `b[32]` for a full `int`) and loop that many times instead of just 8, so enough bits are generated to represent the larger number.
+
+**17. What are the advantages of using arrays in storing intermediate values like binary digits?**
+Arrays let you store multiple related values under one name, access any element by index, reverse or reorder them easily (as needed for LSB→MSB printing), and process them in loops instead of needing a separate variable for every digit.
+
+**18. How do you handle invalid inputs in C programs?**
+Validate after reading input, using `if` conditions to check the value is within the expected range (e.g., `if (n < 0 || n > 255)`), and either reject/reprompt the user (via a loop or `goto`) or print an error message and exit.
+
+**19. Can the multiplication table program be written using a `while` loop? How?**
+Yes:
+```c
+i = 1;
+while (i <= 10) {
+    printf("%d x %d = %d\n", n, i, n * i);
+    i++;
+}
+```
+The loop variable is initialized before the loop, the condition is checked at the top, and it must be manually incremented inside the loop body — `for` just bundles these three steps into one line.
+
+**20. Explain how operator precedence affects the calculation of interest or finding max/min.**
+Operators with higher precedence execute first regardless of position — e.g., in `p * r * t / 100`, multiplication and division (same precedence, left-to-right) happen before any implicit addition would. In max/min comparisons, relational operators (`>`, `<`) are evaluated before logical operators (`&&`, `||`) combine their results, so `(a > b) && (a > c)` correctly compares first, then combines — getting this order wrong (or missing parentheses) can silently produce the wrong result.
