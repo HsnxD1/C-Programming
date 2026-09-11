@@ -1,0 +1,52 @@
+*Reference: Let Us C — Yashwant Kanetkar*
+
+
+## WEEK 1 — Variables & Constants
+
+**1. What is a variable in C?**
+A named location in memory used to store a value that can change during program execution. It has a type, a name, and a value.
+
+**2. How are variables declared in C?**
+By specifying the data type followed by the variable name: `int a;`, `float b;`, `char c;`. Multiple variables of the same type can be declared together: `int x, y, z;`.
+
+**3. What are the different types of variables in C?**
+Based on scope/storage: local variables, global variables, static variables, and register variables. Based on data type: `int`, `float`, `double`, `char`, and their variants (`long`, `short`, `unsigned`, etc.).
+
+**4. What is the scope of a variable? Explain with an example.**
+Scope is the region of the program where a variable can be accessed. Example: a variable declared inside a function (`int x;` inside `main()`) has *local scope* — it's only accessible within that function.
+
+**5. What is the difference between local and global variables?**
+Local variables are declared inside a function/block and exist only during that function's execution. Global variables are declared outside all functions, exist for the entire program's run, and can be accessed by any function in the file.
+
+**6. What is a static variable? How is it different from a global variable?**
+A `static` local variable retains its value between function calls instead of being destroyed when the function ends, but it is still only accessible inside that function (unlike a global variable, which any function can access). A `static` global variable, on the other hand, restricts scope to the file it's declared in.
+
+**7. What is a register variable? Why would you use one?**
+A variable declared with the `register` keyword, requesting the compiler store it in a CPU register instead of RAM for faster access. Used for variables accessed very frequently (like loop counters), though modern compilers often optimize this automatically and may ignore the request.
+
+**8. What is a constant in C?**
+A value that cannot be changed during program execution — e.g., numeric literals (`10`, `3.14`), character literals (`'A'`), string literals (`"hello"`), or values defined via `#define` or `const`.
+
+**9. What is an uninitialized variable? What value does it hold?**
+A variable that has been declared but not assigned a value. It holds a "garbage value" — whatever was left in that memory location previously, which is unpredictable.
+
+**10. What is the difference between a variable declared inside a function and a variable declared outside a function?**
+Inside a function → local variable, limited scope and lifetime (created on function entry, destroyed on exit). Outside all functions → global variable, program-wide scope and lifetime (exists as long as the program runs).
+
+**11. What is the difference between `#define` and `const` for defining constants?**
+`#define` is a preprocessor directive — a simple text substitution done before compilation, with no type checking and no memory allocated. `const` creates an actual typed variable whose value can't be modified after initialization, and it does occupy memory, is type-checked, and is visible to the debugger.
+
+**12. What are the different types of constants in C?**
+Integer constants, real (floating-point) constants, character constants, and string constants.
+
+**13. Can a variable name start with a number? Why or why not?**
+No. C variable names must begin with a letter or underscore, because the compiler uses the first character to distinguish identifiers from numeric literals; starting with a digit would create ambiguity/parsing errors.
+
+**14. Can a constant variable be changed after its declaration? Why or why not?**
+No — a `const` variable's value is fixed at initialization. The compiler enforces this and will throw an error if you try to reassign it, since the whole purpose of `const` is to guarantee the value stays fixed.
+
+**15. Can you declare multiple variables of different types in a single line? Why or why not?**
+No, not in one declaration statement — each declaration statement in C accepts only one type (e.g., `int a, b;` is fine, but `int a, float b;` is not). You need separate statements for different types.
+
+**16. What is the advantage of using constants in a program?**
+They make code more readable (a named constant like `PI` is clearer than `3.14159` scattered everywhere), easier to maintain (change the value in one place), and prevent accidental modification of values that should stay fixed.
