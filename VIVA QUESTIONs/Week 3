@@ -1,0 +1,65 @@
+## WEEK 3 — Control Statements, Loops, Primes, Palindromes
+
+**1. What is the difference between `if`, `if-else`, and nested `if-else` statements?**
+`if` executes a block only when its condition is true, with no alternative. `if-else` adds a second block that runs when the condition is false. Nested `if-else` places an `if-else` inside another `if` or `else` block, allowing multiple sequential conditions to be checked (e.g., narrowing down which of three numbers is smallest).
+
+**2. How does the `switch` statement work in C? When would you prefer it over multiple `if-else` statements?**
+`switch(expression)` compares the expression's value against a series of `case` labels and executes the matching block (falling through to subsequent cases unless a `break` is used). It's preferred over `if-else` chains when testing one variable against several fixed, discrete values (like a menu option or an operator symbol) — it reads more cleanly than a long `if-else if` ladder.
+
+**3. What is the conditional (ternary) operator in C? Give an example.**
+It's a shorthand for a simple `if-else` that returns a value: `condition ? value_if_true : value_if_false`. Example: `max = (a > b) ? a : b;` assigns the larger of `a` and `b` to `max`.
+
+**4. What happens if you omit the `else` part in an `if-else` statement?**
+It simply becomes a plain `if` — if the condition is false, nothing happens and execution just continues to the next statement after the `if` block; there's no alternate action.
+
+**5. What is the difference between entry-controlled and exit-controlled loops? Give examples.**
+Entry-controlled loops check the condition *before* executing the body, so the body may run zero times (`for` and `while` are entry-controlled). Exit-controlled loops check the condition *after* executing the body, so the body always runs at least once (`do-while` is exit-controlled).
+
+**6. How does a `while` loop differ from a `do-while` loop?**
+`while(condition) { body }` tests the condition first; if false initially, the body never executes. `do { body } while(condition);` runs the body once first, then tests the condition — so the body always executes at least once, even if the condition is false from the start.
+
+**7. How can you use a `for` loop to generate a multiplication table?**
+```c
+for (i = 1; i <= 10; i++)
+    printf("%d x %d = %d\n", n, i, n * i);
+```
+`i` runs from 1 to 10, and each iteration prints the product of the input number `n` with the current `i`.
+
+**8. What is an infinite loop? How can you prevent one in your program?**
+A loop whose condition never becomes false, so it never terminates — e.g., `while(1) { ... }` with no exit. Prevented by making sure the loop's controlling variable is correctly updated inside the loop body (so the condition eventually fails), or by including a `break` tied to some terminating condition.
+
+**9. Why is it more efficient to check prime numbers only up to `√n` instead of `n`?**
+If `n` has a factor larger than `√n`, that factor must pair with a corresponding factor smaller than `√n` (since factors multiply to give `n`). So any composite number is guaranteed to have a factor ≤ `√n`, making it unnecessary to check beyond that point — this cuts the number of checks from O(n) down to O(√n).
+
+**10. Why is 1 not considered a prime number?**
+By definition, a prime number must have *exactly two* distinct positive divisors: 1 and itself. The number 1 has only *one* divisor (itself), so it doesn't satisfy the definition and is explicitly excluded as a special case.
+
+**11. How would you modify a prime-checking program to handle very large numbers?**
+Use a larger data type like `long long int` to avoid overflow, loop only up to `√n` (computed via `sqrt()` from `math.h`) rather than `n` for efficiency, and optionally use faster algorithms (e.g., the Sieve of Eratosthenes for checking many numbers, or probabilistic tests like Miller-Rabin for very large single numbers).
+
+**12. What is the time complexity of the prime-checking algorithm using trial division?**
+O(√n) when the loop only checks divisors up to `√n`; O(n) if it naively checks all the way up to `n` (or `n/2`).
+
+**13. In palindrome verification, why do we compare digits (or characters) from both ends?**
+Because a palindrome reads identically forwards and backwards — so its first element must equal its last, its second must equal its second-last, and so on. Comparing from both ends moving inward directly checks this symmetry; if any pair doesn't match, it can't be a palindrome.
+
+**14. How does reversing a number help in checking if it is a palindrome?**
+If you reverse all the digits of a number and the reversed number is identical to the original, the digit sequence reads the same forwards and backwards — which is exactly the definition of a palindrome. So reversing (via repeated `% 10` and `/ 10`) and comparing to the original is a direct, simple test.
+
+**15. Can a negative number be considered a palindrome? Why or why not?**
+Generally, no — the minus sign only appears at the front of the number, not the back, so digit-reversal logic breaks the symmetry (e.g., reversing -121 digit-by-digit doesn't cleanly mirror to -121). Most implementations either treat negative numbers as not palindromic by convention, or work only with the number's absolute value.
+
+**16. What are some real-life applications of palindrome verification?**
+DNA/genome sequence analysis (certain palindromic sequences are biologically significant), data validation (like checking ISBNs or certain ID formats), basic error-detection or hashing schemes, and general string-processing/text-analysis tasks (spell-check-like symmetry checks, word puzzles).
+
+**17. Why do we use arrays to store digits while checking for a palindrome?**
+Extracting digits with `% 10` naturally produces them in reverse order (last digit first). Storing them in an array lets the program keep all digits accessible, then compare them from both ends (`digit[0]` vs `digit[last]`, moving inward) without needing to re-extract or recompute anything.
+
+**18. How can conditional statements and loops be combined in a palindrome program?**
+A loop (`while`) extracts and stores/reverses the digits; a conditional (`if-else`) inside or after the loop compares the result to the original number (or compares array elements pairwise) and decides whether to print "palindrome" or "not a palindrome."
+
+**19. Explain the role of the `break` statement in loops. How is it useful in prime number checking?**
+`break` immediately exits the nearest enclosing loop, skipping remaining iterations. In prime checking, once a divisor is found (`n % i == 0`), there's no need to keep checking further values of `i` — `break` stops the loop right away, saving unnecessary computation.
+
+**20. What is the difference between logical operators (`&&`, `||`) and relational operators (`<`, `>`, `==`) in conditions?**
+Relational operators compare two values directly and produce a true(1)/false(0) result (e.g., `a > b`, `a == b`). Logical operators combine or invert the results of such comparisons — `&&` (AND) is true only if both operands are true, `||` (OR) is true if at least one operand is true — letting you build compound conditions like `(a > b) && (a > c)`.
