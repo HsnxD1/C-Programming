@@ -1,0 +1,35 @@
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    //Declaration and taking input//
+    char s[100], t[50];
+    int pos, i;
+
+    printf("Enter main string: ");
+    gets(s);
+
+    printf("Enter string to insert: ");
+    gets(t);
+
+    printf("Enter position: ");
+    scanf("%d", &pos);
+
+    // Shift characters to the right (making space for the 2nd string)
+    for(i = strlen(s); i >= pos; i--)
+    {
+        s[i + strlen(t)] = s[i];
+    }
+
+    // Insert the new string
+    for(i = 0; t[i] != '\0'; i++)
+    {
+        s[pos + i] = t[i];
+    }
+
+    printf("Result: %s", s);
+
+    return 0;
+}
