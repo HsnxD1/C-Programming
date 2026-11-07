@@ -1,0 +1,44 @@
+
+#include <stdio.h>
+
+int main()
+{
+    char s[500];
+    int i, lines = 0, words = 0, chars = 0;
+    int inword = 0;
+
+    // Read text
+    gets(s);
+
+    // Check each character
+    for(i = 0; s[i] != '\0'; i++)
+    {
+        chars++;  // Count characters
+
+        // Count lines
+        if(s[i] == '\n')
+            lines++;
+
+        // Check for space or newline
+        if(s[i] == ' ' || s[i] == '\n')
+        {
+            inword = 0;
+        }
+        else if(inword == 0)
+        {
+            words++;   // Count new word
+            inword = 1;
+        }
+    }
+
+    // Count final line if text is not empty
+    if(chars > 0)
+        lines++;
+
+    // Display results
+    printf("Lines = %d\n", lines);
+    printf("Words = %d\n", words);
+    printf("Characters = %d\n", chars);
+
+    return 0;
+}
